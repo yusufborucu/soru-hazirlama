@@ -1,1 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  background-color: #f7f7f7;
+  padding: 15px 10px;
+}
+
+.paper {
+  background-color: #fff;
+  width: 595px;
+  height: 842px;
+  display: inline-block;
+  box-shadow: 0 0 20px -3px rgba(0, 0, 0, 0.25);
+  padding: 55px;
+  font-size: 10pt;
+  vertical-align: top;
+  .paper-title {
+    font-size: 10pt;
+    text-align: center;
+    font-weight: bold;
+  }
+  .point-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 100px 30px 0;
+    .left,
+    .right {
+      strong {
+        display: block;
+      }
+    }
+  }
+  .questions {
+    .question {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      .question-title {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      .question-buttons {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        left: -45px;
+        top: 10px;
+        transition: .3s;
+      }
+      &.column-1 { width: 100%; }
+      &.column-2 { width: 50%; }
+      &.size-6 { font-size: 6pt; .answer span { font-size: 7pt; } }
+      &.size-7 { font-size: 7pt; .answer span { font-size: 8pt; } }
+      &.size-8 { font-size: 8pt; .answer span { font-size: 9pt; } }
+      &.size-9 { font-size: 9pt; .answer span { font-size: 10pt; } }
+      &.size-10 { font-size: 10pt; .answer span { font-size: 11pt; } }
+      &.size-11 { font-size: 11pt; .answer span { font-size: 12pt; } }
+      &.size-12 { font-size: 12pt; .answer span { font-size: 13pt; } }
+      &.size-13 { font-size: 13pt; .answer span { font-size: 14pt; } }
+      &.size-14 { font-size: 14pt; .answer span { font-size: 15pt; } }
+      &.size-15 { font-size: 15pt; .answer span { font-size: 16pt; } }
+      &:hover {
+        .question-buttons {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.google-160x600 {
+  width: 160px;
+  height: 600px;
+  background-color: #d2d2d2;
+  display: inline-block;
+  margin-left: 55px;
+  vertical-align: top;
+}
+
+.pre-wrap {
+  white-space: pre-wrap;
+}
+
+
+$spaceamounts: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+  .m-#{$space} {
+    margin: #{$space}px !important;
+  }
+
+  .p-#{$space} {
+    padding: #{$space}px !important;
+  }
+  @each $side in $sides {
+
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+
